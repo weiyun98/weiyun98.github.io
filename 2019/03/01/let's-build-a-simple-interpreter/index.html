@@ -8,7 +8,7 @@
   <meta name="description" content="让我们构建一个简单的解释器（1）原文链接：https://ruslanspivak.com/lsbasi-part1/  “If you don’t know compilers work,ten you don’t know how computers work. If you’re not 100% sure whether you know how compilers work,then y">
 <meta property="og:type" content="article">
 <meta property="og:title" content="let&#39;s build a simple interpreter 1(转)(翻)">
-<meta property="og:url" content="http://yoursite.com/2019/03/01/HB-is-one-of-my-best-friends/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/let's-build-a-simple-interpreter/index.html">
 <meta property="og:site_name" content="Welcome to cbdshz">
 <meta property="og:description" content="让我们构建一个简单的解释器（1）原文链接：https://ruslanspivak.com/lsbasi-part1/  “If you don’t know compilers work,ten you don’t know how computers work. If you’re not 100% sure whether you know how compilers work,then y">
 <meta property="og:locale" content="1284911244@qq.com">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://ruslanspivak.com/lsbasi-part1/lsbasi_part1_lexer3.png">
 <meta property="og:image" content="https://ruslanspivak.com/lsbasi-part1/lsbasi_part1_lexer4.png">
 <meta property="og:image" content="https://ruslanspivak.com/lsbasi-part1/lsbasi_exercises2.png">
-<meta property="og:updated_time" content="2019-03-01T14:54:29.307Z">
+<meta property="og:updated_time" content="2019-03-01T16:22:41.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="let&#39;s build a simple interpreter 1(转)(翻)">
 <meta name="twitter:description" content="让我们构建一个简单的解释器（1）原文链接：https://ruslanspivak.com/lsbasi-part1/  “If you don’t know compilers work,ten you don’t know how computers work. If you’re not 100% sure whether you know how compilers work,then y">
@@ -74,9 +74,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-HB-is-one-of-my-best-friends" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-let&#39;s-build-a-simple-interpreter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/01/HB-is-one-of-my-best-friends/" class="article-date">
+    <a href="/2019/03/01/let's-build-a-simple-interpreter/" class="article-date">
   <time datetime="2019-02-28T16:28:52.000Z" itemprop="datePublished">2019-03-01</time>
 </a>
     
@@ -97,7 +97,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="让我们构建一个简单的解释器（1）"><a href="#让我们构建一个简单的解释器（1）" class="headerlink" title="让我们构建一个简单的解释器（1）"></a>让我们构建一个简单的解释器（1）</h2><p>原文链接：<a href="https://ruslanspivak.com/lsbasi-part1/" target="_blank" rel="noopener">https://ruslanspivak.com/lsbasi-part1/</a> </p>
-<p><strong><em>“If you don’t know compilers work,ten you don’t know how computers work. If you’re not 100% sure whether you know how compilers work,then you don’t know how the work.”<br>–Steve Yegge</em></strong>  </p>
+<p><strong><em>“If you don’t know compilers work,ten you don’t know how computers work. If you’re not 100% sure whether you know how compilers work,then you don’t know how the work.”<br>–Steve Yegge</em></strong><br><a id="more"></a></p>
 <h3 id="好吧，各位。想想上面这句话，无论你是一个菜鸟还是一个资深的软件开发工程师，如果你不懂编译器和解释器是如何工作的，那么你就不会知道计算机是如何工作的。这应该很容易理解。"><a href="#好吧，各位。想想上面这句话，无论你是一个菜鸟还是一个资深的软件开发工程师，如果你不懂编译器和解释器是如何工作的，那么你就不会知道计算机是如何工作的。这应该很容易理解。" class="headerlink" title="好吧，各位。想想上面这句话，无论你是一个菜鸟还是一个资深的软件开发工程师，如果你不懂编译器和解释器是如何工作的，那么你就不会知道计算机是如何工作的。这应该很容易理解。"></a>好吧，各位。想想上面这句话，无论你是一个菜鸟还是一个资深的软件开发工程师，如果你不懂编译器和解释器是如何工作的，那么你就不会知道计算机是如何工作的。这应该很容易理解。</h3><h3 id="所以，你知道编译器或者解释器是如何工作的吗？好吧，我的意思是你真的百分百确定你知道他是如何工作的吗？如果你不知道"><a href="#所以，你知道编译器或者解释器是如何工作的吗？好吧，我的意思是你真的百分百确定你知道他是如何工作的吗？如果你不知道" class="headerlink" title="所以，你知道编译器或者解释器是如何工作的吗？好吧，我的意思是你真的百分百确定你知道他是如何工作的吗？如果你不知道"></a>所以，你知道编译器或者解释器是如何工作的吗？好吧，我的意思是你真的百分百确定你知道他是如何工作的吗？如果你不知道</h3><p><img src="https://ruslanspivak.com/lsbasi-part1/lsbasi_part1_i_dont_know.png" alt="I don&#39;t"></p>
 <h3 id="或者你知道并因此而感到焦虑"><a href="#或者你知道并因此而感到焦虑" class="headerlink" title="或者你知道并因此而感到焦虑"></a>或者你知道并因此而感到焦虑</h3><p><img src="https://ruslanspivak.com/lsbasi-part1/lsbasi_part1_omg.png" alt="OMG"></p>
 <h3 id="不要担心。如果你能够坚持走完这一系列的学习并且和我一起构建一个解释器和编译器，那么最后你就能够知道它们是怎么工作的。同时，我也希望因此你能够感到快乐且增加自信。"><a href="#不要担心。如果你能够坚持走完这一系列的学习并且和我一起构建一个解释器和编译器，那么最后你就能够知道它们是怎么工作的。同时，我也希望因此你能够感到快乐且增加自信。" class="headerlink" title="不要担心。如果你能够坚持走完这一系列的学习并且和我一起构建一个解释器和编译器，那么最后你就能够知道它们是怎么工作的。同时，我也希望因此你能够感到快乐且增加自信。"></a>不要担心。如果你能够坚持走完这一系列的学习并且和我一起构建一个解释器和编译器，那么最后你就能够知道它们是怎么工作的。同时，我也希望因此你能够感到快乐且增加自信。</h3><p><img src="https://ruslanspivak.com/lsbasi-part1/lsbasi_part1_i_know.png" alt="happy"></p>
@@ -130,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/01/HB-is-one-of-my-best-friends/" data-id="cjsq858970001m4vbmuav8ejj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/01/let's-build-a-simple-interpreter/" data-id="cjsq9ock90002jwvb1gfx1czt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -179,7 +179,7 @@
       <ul>
         
           <li>
-            <a href="/2019/03/01/HB-is-one-of-my-best-friends/">let&#39;s build a simple interpreter 1(转)(翻)</a>
+            <a href="/2019/03/01/let's-build-a-simple-interpreter/">let&#39;s build a simple interpreter 1(转)(翻)</a>
           </li>
         
           <li>
